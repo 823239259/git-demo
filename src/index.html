@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mylearnning js</title>
+</head>
+<body>
+    <h1>sdfsdf</h1>
+<script>
+    // var scope = 'global scope';
+    // function checkscope() {
+    //     var scope = 'local scope';
+    //     return function f() {
+    //         return scope
+    //     }
+    //   }
+    // console.log(checkscope()());  
+    // var uniqueInteger = (function () { 
+    //                         var conter = 0;
+    //                         return function (){return  conter++}    
+    //                     })();
+    // console.log(uniqueInteger());
+    // console.log(uniqueInteger());
+    // console.log(uniqueInteger());
+
+    // var obj = {};
+    // var name = 'name';
+    // obj['get'+ name] = function(){return 1};
+    // obj.getname();
+    var funcs = [];
+    for (var i = 0; i < 10; i++) {
+        funcs[i] = constfunc(i);
+        
+    }
+    function constfunc(v) {
+        return function (){
+            return v
+        }
+    }
+    console.log(funcs[5]());
+    console.log(funcs[2]());
+    function constfuncs (){
+        var funcs = [];
+        for (var i = 0; i < 10; i++) {
+            funcs[i] = function() {
+                return i
+            }           
+        }
+        return funcs;
+    }
+    var funcs1 = constfuncs();
+    console.log(funcs1[5]())
+</script>
+</body>
+</html>
