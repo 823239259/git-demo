@@ -156,7 +156,9 @@ https://github.com/jobbole/awesome-css-cn
   - git branch branchname
       添加一个其他的分支（名字自定义）
   - git checkout xxx
-      切换到xxx分支去        
+      切换到xxx分支去  
+（我的问题：修改后为什么再次提交的时候显示提交 Changes not staged for commit？）  
+
 
 
 
