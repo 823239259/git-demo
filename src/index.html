@@ -29,29 +29,120 @@
     // var name = 'name';
     // obj['get'+ name] = function(){return 1};
     // obj.getname();
-    var funcs = [];
-    for (var i = 0; i < 10; i++) {
-        funcs[i] = constfunc(i);
+    // var funcs = [];
+    // for (var i = 0; i < 10; i++) {
+    //     funcs[i] = constfunc(i);
         
+    // }
+    // function constfunc(v) {
+    //     return function (){
+    //         return v
+    //     }
+    // }
+    // console.log(funcs[5]());
+    // console.log(funcs[2]());
+    // function constfuncs (){
+    //     var funcs = [];
+    //     for (var i = 0; i < 10; i++) {
+    //         funcs[i] = function() {
+    //             return i
+    //         }           
+    //     }
+    //     return funcs;
+    // }
+    // var funcs1 = constfuncs();
+    // console.log(funcs1[5]())
+    //bind()学习
+//     var sum = function (y,z){
+//         this.x = 4;
+//         return this.x+y+z 
+//     };
+   
+//     var sum1 =() =>1+23;
+//     var sums = new (sum.bind({x:123},12));
+    
+//     console.log(sum.toString())
+//     var obj1 = {x:1,y:314};
+//     var obj2 = {x:2,y:43};
+//     var arr1 = [obj1,obj2];
+//      function createComparisionFunction (property){
+//         return  function(obj1,obj2){
+//             return obj1[property]-obj2[property]
+//         }
+//     }
+//     arr1.sort(createComparisionFunction('y'))
+//     console.log(arr1);
+//    function not(fn){
+//         return function(){
+//             var result = fn.apply(this.arguments);
+//             return !result
+//         }
+//    }
+    //构造函数的学习
+    function inherit(p) {
+        if (p===null) throw new TypeError('传入对象不能是一个null');
+        if(Object.create){
+            return   Object.create(p)
+        };
+        var t = typeof p;
+        if(t !=='object'&&t !=='function') throw new TypeError('传入对象不能是一个对象或者函数');
+        function f(){};
+        f.prototype = p;
+        return new f();
     }
-    function constfunc(v) {
-        return function (){
-            return v
+    /*创建一个JavaScript类的方式*/
+    //方法一：工厂方法 
+    function range(form,to) {
+        var r = inherit(range.methods);
+        r.form = form;
+        r.to = to;
+        return r;
+    }
+    range.methods = {
+        includes: function(x){
+            return this.form<=x && x<=this.to;
+        },
+        foreach:function(f){
+            for(var x = Math.ceil(this.form);x<this.to;x++){
+                f(x)
+            }
+        },
+        toString:function(){
+            return `(${this.form}...${this.to})`
+        }
+
+    };
+    var r = range(3,7);
+    r.includes(4);
+    r.foreach(console.info);
+    r.toString();
+
+    //方法二： 构造函数方式
+    function Range(form,to){
+      this.form = form;
+      this.to = to;
+
+    };
+    Range.prototype = {
+        includes: function(x){
+            return this.form<=x && x<=this.to;
+        },
+        foreach:function(f){
+            for(var x = Math.ceil(this.form);x<this.to;x++){
+                f(x)
+            }
+        },
+        toString:function(){
+            return `(${this.form}...${this.to})`
         }
     }
-    console.log(funcs[5]());
-    console.log(funcs[2]());
-    function constfuncs (){
-        var funcs = [];
-        for (var i = 0; i < 10; i++) {
-            funcs[i] = function() {
-                return i
-            }           
-        }
-        return funcs;
-    }
-    var funcs1 = constfuncs();
-    console.log(funcs1[5]())
+    var R = new Range(3,7);
+    R.includes(4);
+    R.foreach(console.info);
+    R.toString();
 </script>
 </body>
 </html>
+
+
+

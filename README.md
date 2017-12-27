@@ -134,8 +134,14 @@ git reset --hard
 
 - https://github.com/
 - GITHUB是一个GIT服务的提供商，
-- 
+- 用来同步本地的服务器；
 - 提出社交化编程
+- git remote 
+  查看当前远程仓库
+- git remote add origin http：xxxx；
+  添加要上传的github上的项目地址  
+- git push -u origin 
+  推送到GitHub的服务器上  
 
 http://zoomzhao.github.io/code-guide/
 https://github.com/jobbole/awesome-javascript-cn
