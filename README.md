@@ -151,7 +151,12 @@ https://github.com/jobbole/awesome-css-cn
 
 
 - GIT分支
-
+  - git branch 
+      查看当前分支情况
+  - git branch branchname
+      添加一个其他的分支（名字自定义）
+  - git checkout xxx
+      切换到xxx分支去        
 
 
 
