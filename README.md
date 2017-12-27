@@ -157,7 +157,9 @@ https://github.com/jobbole/awesome-css-cn
       添加一个其他的分支（名字自定义）
   - git checkout xxx
       切换到xxx分支去  
-（我的问题：修改后为什么再次提交的时候显示提交 Changes not staged for commit？）  
+（我的问题：修改后为什么再次提交的时候显示提交 Changes not staged for commit？） 
+    原因：提交的时候没有添加到节点中。解决办法：第一种：git add 变动文件 在 git commit ；
+                                            第二种： git commit -m ’msg‘ -a；
 
 
 
