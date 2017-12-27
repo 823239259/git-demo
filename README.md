@@ -140,9 +140,11 @@ git reset --hard
   查看当前远程仓库
 - git remote add origin http：xxxx；
   添加要上传的github上的项目地址  
-- git push -u origin 
-  推送到GitHub的服务器上  
-
+- git push -u origin master 
+  推送到GitHub的服务器上的master分支（可以其他任何的分支）
+- git pull origin master
+  从远端的GitHub服务器上拉取master分支的项目
+  
 http://zoomzhao.github.io/code-guide/
 https://github.com/jobbole/awesome-javascript-cn
 https://github.com/jobbole/awesome-css-cn
