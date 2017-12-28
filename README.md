@@ -136,7 +136,7 @@ git reset --hard
 - GITHUB是一个GIT服务的提供商，
 - 用来同步本地的服务器；
 - 提出社交化编程
-- git remote 
+- git remote -v 
   查看当前远程仓库
 - git remote add origin http：xxxx；
   添加要上传的github上的项目地址  
@@ -161,11 +161,18 @@ https://github.com/jobbole/awesome-css-cn
     原因：提交的时候没有添加到节点中。解决办法：第一种：git add 变动文件 在 git commit ；
                                             第二种： git commit -m ’msg‘ -a；
 
+  - git clone https://github.com/823239259/git-demo.git .
+      拷贝GitHub上的项目到当前文件夹
 
+- hexo工具的使用
+  - (c)npm install hexo-cli -g 
+    安装hexo工具
+  - 当前目录下 hexo init <file>
+    初始化一个博客文件  
+  - 文章以md的文件放在source\_posts下面
 
-
-
-
+  -  hexo generate
+    生成静态文件 放在pulic文件中
 
 
 
