@@ -8,6 +8,13 @@
 </head>
 <body>
     <h1>sdfsdf</h1>
+    <div id="ttt">
+        <p >000000000000000000</p>
+            <br>
+        <p >111111111111111111</p>
+        <br>
+        <p >222222222222222222</p>
+    </div>
 <script>
     // var scope = 'global scope';
     // function checkscope() {
@@ -92,55 +99,109 @@
     }
     /*创建一个JavaScript类的方式*/
     //方法一：工厂方法 
-    function range(form,to) {
-        var r = inherit(range.methods);
-        r.form = form;
-        r.to = to;
-        return r;
-    }
-    range.methods = {
-        includes: function(x){
-            return this.form<=x && x<=this.to;
-        },
-        foreach:function(f){
-            for(var x = Math.ceil(this.form);x<this.to;x++){
-                f(x)
-            }
-        },
-        toString:function(){
-            return `(${this.form}...${this.to})`
-        }
+    // function range(form,to) {
+    //     var r = inherit(range.methods);
+    //     r.form = form;
+    //     r.to = to;
+    //     return r;
+    // }
+    // range.methods = {
+    //     includes: function(x){
+    //         return this.form<=x && x<=this.to;
+    //     },
+    //     foreach:function(f){
+    //         for(var x = Math.ceil(this.form);x<this.to;x++){
+    //             f(x)
+    //         }
+    //     },
+    //     toString:function(){
+    //         return `(${this.form}...${this.to})`
+    //     }
 
-    };
-    var r = range(3,7);
-    r.includes(4);
-    r.foreach(console.info);
-    r.toString();
+    // };
+    // var r = range(3,7);
+    // r.includes(4);
+    // r.foreach(console.info);
+    // r.toString();
 
-    //方法二： 构造函数方式
-    function Range(form,to){
-      this.form = form;
-      this.to = to;
+    // //方法二： 构造函数方式
+    // function Range(form,to){
+    //   this.form = form;
+    //   this.to = to;
 
-    };
-    Range.prototype = {
-        includes: function(x){
-            return this.form<=x && x<=this.to;
-        },
-        foreach:function(f){
-            for(var x = Math.ceil(this.form);x<this.to;x++){
-                f(x)
-            }
-        },
-        toString:function(){
-            return `(${this.form}...${this.to})`
-        }
-    }
-    var R = new Range(3,7);
-    R.includes(4);
-    R.foreach(console.info);
-    R.toString();
-    var meyong = {};
+    // };
+    // Range.prototype = {
+    //     constructor:Range,
+    //     includes: function(x){
+    //         return this.form<=x && x<=this.to;
+    //     },
+    //     foreach:function(f){
+    //         for(var x = Math.ceil(this.form);x<this.to;x++){
+    //             f(x)
+    //         }
+    //     },
+    //     toString:function(){
+    //         return `(${this.form}...${this.to})`
+    //     }
+    // }
+    // var R = new Range(3,7);
+    // R.includes(4);
+    // R.foreach(console.info);
+    // R.toString();
+    // console.log(typeof R)
+    // console.log(Range.prototype);
+    // var x = {1:2,34:4};
+    
+
+    //     setTimeout(function(){
+    //     for(var i = 0; i<5;i++){   
+    //         console.log(i)           
+    //     //    (function(){
+    //     //     console.log(i)
+    //     //    })(i) 
+    //     }   
+    //     },30)
+    // var dom=document.getElementsByTagName("p");
+    // // for(var i=0;i<dom.length;i++){
+    // //     dom[i].onclick=function(){    
+    // //         console.log(i);//3
+    // //     };
+    // // } 
+    // for(var i=0;i<dom.length;i++){
+    //     dom[i].onclick=function(i){
+    //         return function(){ 
+    //         console.log(i);
+    //         };
+    //     }(i);
+    // }   
+    var haha = 'global';
+    function sss(){
+        var haha = 'local';  
+        function f(){
+            return haha
+        }     
+        return  f()
+       
+    }  
+    console.log(sss());
+    function sss1(){
+        var haha = 'local';     
+        function f(){
+            return haha
+        }  
+        return f
+       
+    } 
+    var s1 = sss1();
+    var s2 = function f(){
+            return haha
+        };
+    
+    console.log(s1);
+    console.log(s2);
+    console.log(s1());
+    console.log(s2());
+    
 </script>
 </body>
 </html>
